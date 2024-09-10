@@ -58,7 +58,7 @@ void WebServer::handleRoot() {
 
     String dataFormatada = timeClient.getFormattedTime();
     char json[200];
-    snprintf(json, sizeof(json), "\"temperatura\":%0.2f,\"umidade\":%0.2f,\"timestamp\":\"%s\"}", temperatura, umidade, dataFormatada.c_str());
+    snprintf(json, sizeof(json), "{\"temperatura\":%0.2f,\"umidade\":%0.2f,\"timestamp\":\"%s\"}", temperatura, umidade, dataFormatada.c_str());
     
     File file = LittleFS.open("/data.txt", "a");
     if (!file) {
